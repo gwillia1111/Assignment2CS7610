@@ -7,16 +7,17 @@ class LaptopOrder {
 private:
 	int customer_id;
 	int order_number;
-	int laptop_type;
+	int request_type;
+	int last_order;
 
 public:
 	LaptopOrder();
 	void operator = (const LaptopOrder &order) {
 		customer_id = order.customer_id;
 		order_number = order.order_number;
-		laptop_type = order.laptop_type;
+		request_type = order.request_type;
 	}
-	void SetOrder(int cid, int order_num, int type);
+	void SetOrder(int cid, int order_num, int type,int last);
 	int GetCustomerId();
 	int GetOrderNumber();
 	int GetLaptopType();
@@ -35,29 +36,31 @@ class LaptopInfo {
 private:
 	int customer_id;
 	int order_number;
-	int laptop_type;
 	int engineer_id;
-	int expert_id;
+	int admin_id;
+	int request_type ;
+	// int last_order;
 
 public:
 	LaptopInfo();
 	void operator = (const LaptopInfo &info) {
 		customer_id = info.customer_id;
 		order_number = info.order_number;
-		laptop_type = info.laptop_type;
+		request_type = info.request_type;
 		engineer_id = info.engineer_id;
-		expert_id = info.expert_id;
+		admin_id = info.admin_id;
+		request_type =info.request_type;
 	}
-	void SetInfo(int cid, int order_num, int type, int engid, int expid);
+	void SetInfo(int cid, int order_num, int type, int engid, int expid,int reqid);
 	void CopyOrder(LaptopOrder order);
 	void SetEngineerId(int id);
-	void SetExpertId(int id);
+	void SetAdminId(int id);
 
 	int GetCustomerId();
 	int GetOrderNumber();
 	int GetLaptopType();
 	int GetEngineerId();
-	int GetExpertId();
+	int GetAdminId();
 
 	int Size();
 
